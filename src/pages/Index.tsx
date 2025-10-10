@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Scale, Phone, Mail, MapPin, Star, ChevronRight, Target, Eye, Heart, Shield, UserCheck, TrendingUp, Instagram, Facebook } from "lucide-react";
+import { Scale, Phone, Mail, MapPin, Star, ChevronRight, Target, Eye, Heart, Shield, UserCheck, TrendingUp, Instagram, Facebook, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import logoJA from "@/assets/logo-ja.png";
-import herobackground from "@/assets/herobackground.png";
 import ctaBackground from "@/assets/cta-background.jpg";
+import recepcao from "@/assets/recepcao.jpg";
 import teamJuliana from "@/assets/teamJuliana.png";
 import teamIngrid from "@/assets/teamIngrid.jpg";
 import officeMeeting from "@/assets/officeMeeting.png";
@@ -57,7 +58,7 @@ const Index = () => {
               <MapPin className="h-3 w-3" />
               Avenida Nova York, 587 - Segundo andar - Capelinha, Betim - MG, 32678-325
             </span>
-            <span className="text-accent font-semibold">OAB PJOAB/MG11811</span>
+            <span className="text-accent font-semibold">OAB/MG 11.811</span>
           </div>
         </div>
       </div>
@@ -68,8 +69,8 @@ const Index = () => {
           <div className="flex items-center gap-3">
             <img src={logosemfundo} alt="Joelma Alves Logo" className="h-12 w-12 object-contain" />
             <div>
-              <h1 className="text-base font-bold text-primary-foreground tracking-wide">JOELMA ALVES</h1>
-              <p className="text-xs text-primary-foreground/70">Sociedade Individual de Advocacia</p>
+              <h1 className="text-base font-bold text-primary-foreground tracking-wide">Joelma Alves Advocacia</h1>
+              <p className="text-xs text-primary-foreground/70">Consultoria e Assessoria Jurídica</p>
             </div>
           </div>
           <nav className="hidden lg:flex items-center gap-8">
@@ -87,10 +88,10 @@ const Index = () => {
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-[90vh] flex items-center justify-center bg-primary text-primary-foreground">
-        <div className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none" style={{
-        backgroundImage: `url(${herobackground})`
+        <div className="absolute inset-0 bg-cover bg-center opacity-40 pointer-events-none" style={{
+        backgroundImage: `url(${recepcao})`
       }}></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/90 to-primary pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/70 to-primary pointer-events-none"></div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
           {/* Logo Central */}
@@ -120,7 +121,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-4 text-foreground">Sobre nossa Advocacia</h2>
           <p className="text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
-            Uma sociedade individual de advocacia comprometida com a excelência e dedicada a oferecer as melhores soluções jurídicas.
+            Escritório comprometido com excelência e dedicado a oferecer as melhores soluções jurídicas
           </p>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
             <Card className="p-6 text-center">
@@ -226,23 +227,20 @@ const Index = () => {
       {/* Team Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto items-center">
+          <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto items-start">
             {/* Juliana */}
             <div className="order-2 md:order-1">
-              <img src={teamJuliana} alt="Dra. Joelma Alves" className="w-full rounded-lg shadow-xl" />
+              <img src={teamJuliana} alt="Dra. Joelma Alves" className="w-full h-[500px] object-cover rounded-lg shadow-xl" />
             </div>
             <div className="order-1 md:order-2">
-              <h2 className="text-4xl font-bold mb-4 text-foreground">Dra. Joelma Alves</h2>
-              <p className="text-lg text-muted-foreground mb-6">
+              <h2 className="text-3xl font-bold mb-2 text-foreground">Dra. Joelma Alves</h2>
+              <p className="text-sm text-accent font-semibold mb-4">OAB/MG 137.678</p>
+              <p className="text-base text-muted-foreground mb-6">
                 Advogada com ampla experiência em diversas áreas do direito, oferecendo atendimento humanizado e soluções jurídicas modernas.
               </p>
-              <Card className="bg-primary text-primary-foreground p-6 mb-4">
-                <p className="font-semibold mb-2">OAB/MG  137.678</p>
-                <p className="font-semibold">Consultora Jurídica</p>
-              </Card>
               <Card className="bg-muted p-6">
                 <h4 className="font-bold mb-3 text-foreground">Especializações</h4>
-                <ul className="space-y-2 text-muted-foreground">
+                <ul className="space-y-2 text-muted-foreground text-sm">
                   <li>• Advocacia Empresarial & Consultoria</li>
                   <li>• Direito Civil & Imobiliário</li>
                   <li>• Direito Trabalhista & Previdenciário</li>
@@ -254,15 +252,13 @@ const Index = () => {
 
             {/* Ingrid */}
             <div className="order-3">
-              <h2 className="text-4xl font-bold mb-4 text-foreground">Ingrid - Estagiária</h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                Graduanda em Direito pela PUC Minas - Campus Betim (7º período), com experiência prática em escritórios de advocacia e no Núcleo de Prática Jurídica (SAJ). Atua no acompanhamento de processos, elaboração de peças, apoio em audiências e atendimento ao público.
-                Participa de projetos de extensão em Direitos Humanos e foi monitora acadêmica no programa PUC Aberta, fortalecendo competências de integração e orientação estudantil. 
-                Complementa sua formação com cursos e oficinas em advocacia criminal, oratória, direito constitucional e desportivo.
+              <h2 className="text-3xl font-bold mb-4 text-foreground">Ingrid - Estagiária</h2>
+              <p className="text-base text-muted-foreground mb-6">
+                Graduanda em Direito pela PUC Minas - Campus Betim (7º período), com experiência prática em escritórios de advocacia e no Núcleo de Prática Jurídica (SAJ). Atua no acompanhamento de processos, elaboração de peças, apoio em audiências e atendimento ao público. Participa de projetos de extensão em Direito Civil, Consumista e foi monitora acadêmica no programa PUC Aberta, fortalecendo competências de integração e orientação estudantil. Complementa sua formação com cursos e oficinas em advocacia criminal, oratória, direito constitucional e desportivo.
               </p>
               <Card className="bg-muted p-6">
                 <h4 className="font-bold mb-3 text-foreground">Competências Principais</h4>
-                <ul className="space-y-2 text-muted-foreground">
+                <ul className="space-y-2 text-muted-foreground text-sm">
                   <li>• Atendimento ao cliente Júnior</li>
                   <li>• Processo Judicial e Extrajudicial</li>
                   <li>• Direito Imobiliário e Urbanístico</li>
@@ -272,7 +268,7 @@ const Index = () => {
               </Card>
             </div>
             <div className="order-4">
-              <img src={teamIngrid} alt="Ingrid - Estagiária" className="w-full rounded-lg shadow-xl" />
+            <img src={teamIngrid} alt="Ingrid - Estagiária" className="w-full h-[500px] object-cover object-top rounded-lg shadow-xl" />
             </div>
           </div>
         </div>
@@ -301,7 +297,7 @@ const Index = () => {
           }, {
             title: "Advocacia Trabalhista",
             image: advocaciaTrabalhista,
-            items: ["Ações Trabalhistas", "Horas Extras", "FGTS", "Reclamatórias Trabalhistas"]
+            items: ["Ações Trabalhistas", "Negociações Sindicais", "FGTS", "Ações Coletivas"]
           }, {
             title: "Advocacia Imobiliária",
             image: direitoImobiliario,
@@ -367,23 +363,56 @@ const Index = () => {
           <p className="text-center text-muted-foreground mb-16">
             Depoimentos de quem confia em nosso trabalho
           </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[{
-            name: "Aline Ferreira Lins",
-            text: "Pessoal, super indico o trabalho da Dra.Joelma. Muito prestativa e ótima profissional. Tenho certeza que, com ela a frente, todos os seus objetivos dentro da esfera jurídica serão alcançados."
-          }, {
-            name: "Otacílio de Souza",
-            text: "Uma excelente profissional. Comprometida com a verdade e atenta aos detalhes. Minha experiência com os serviços de advocacia com a profissional Joelma Alves foi a melhor possível. Destaco o dinamismo e a confiança que eu e minha família podemos ter com ela para a resolução de uma problema que nos afetou financeiramente. Só alegria!"
-          }, {
-            name: "Priscilla Ribeiro",
-            text: "Atendimento e profissionalismo que dispensa qualquer tipo de apresentação. Advogada Joelma, um ser humano incrível extremamente ética e de uma grande empatia, sem contar o ambiente organizado e o atendimento da recepção, eficiente e ágil. Pessoas receptivas."
-          }].map((testimonial, index) => <Card key={index} className="p-6 shadow-lg">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-accent text-accent" />)}
-                </div>
-                <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-              </Card>)}
+          <div className="max-w-5xl mx-auto">
+            <Carousel opts={{ align: "start", loop: true }} className="w-full">
+              <CarouselContent>
+                {[{
+                  name: "Maikon Silva",
+                  text: "Tive uma excelente experiência com a Dra Joelma, é uma profissional dedicada e exemplar. Ela me ajudou a pegar a guarda da minha filha, é nítido o amor que ela tem pelo que faz. Recomendo muito como advogada, além de prestativa, sempre está consultando os processos de seus clientes, nunca perdendo prazos durante os trâmites. Hoje, mais que uma advogada, é uma grande AMIGA"
+                }, {
+                  name: "Cláudio Henrique",
+                  text: "Gostaria de expressar meu sincero elogio à Joelma Alves Advocacia. A competência e dedicação demonstradas pela equipe refletem-se em serviços jurídicos de alta qualidade. Estou impressionado com o profissionalismo e a atenção aos detalhes que caracterizam o trabalho desta advocacia. Recomendo Joelma Alves Advocacia a todos que buscam excelência jurídica."
+                }, {
+                  name: "Priscilla Ribeiro",
+                  text: "Atendimento e profissionalismo que dispensa qualquer tipo de apresentação. Advogada Joelma, um ser humano incrível extremamente ética e de uma grande empatia, sem contar o ambiente organizado e o atendimento da recepção, eficiente e ágil."
+                }, {
+                  name: "Aline Ferreira Lins",
+                  text: "Pessoal, super indico o trabalho da Dra.Joelma. Muito prestativa e ótima profissional. Tenho certeza que, com ela a frente, todos os seus objetivos dentro da esfera jurídica serão alcançados."
+                }, {
+                  name: "Otacílio de Souza",
+                  text: "Uma excelente profissional. Comprometida com a verdade e atenta aos detalhes. Minha experiência com os serviços de advocacia com a profissional Joelma Alves foi a melhor possível. Destaco o dinamismo e a confiança que eu e minha família podemos ter com ela para a resolução de uma problema que nos afetou financeiramente. Só alegria!"
+                }, {
+                  name: "Silmara Ribeiro",
+                  text: "Excelente profissional, de uma competência incrível, sem falar na atenção com o cliente."
+                }, {
+                  name: "Edmara Rubens",
+                  text: "Uma excelente profissional. Resolveu meu trabalho rápido,e com amor e dedicação"
+                }, {
+                  name: "Josiele Santos",
+                  text: "Excelente profissional, me auxiliou desde o inicio ao fim do meu processo, super indico e recomendo!"
+                 }, {
+                  name: "Felipe Aquino",
+                  text: "Excelente profissional, resolveu o que tinha .pra ser feito em tempo ágil"
+                 }, {
+                  name: "Leonardo Gomes",
+                  text: "Ótimo atendimento sempre com transferência e agilidade. Um exemplo de profissional a ser seguido, Parabéns pela dedicação e rapidez."
+                }].map((testimonial, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <Card className="p-6 shadow-lg h-full">
+                        <div className="flex gap-1 mb-4">
+                          {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-accent text-accent" />)}
+                        </div>
+                        <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
+                        <p className="font-semibold text-foreground">{testimonial.name}</p>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
         </div>
       </section>
@@ -520,15 +549,15 @@ const Index = () => {
               <div className="flex items-center gap-2 mb-4">
                 <img src={logoJA} alt="Logo Joelma Alves" className="h-10 w-10 object-contain" />
                 <div>
-                  <h3 className="font-bold">Joelma Alves</h3>
-                  <p className="text-xs">Sociedade Individual de Advocacia</p>
+                  <h3 className="font-bold">Joelma Alves Advocacia</h3>
+                  <p className="text-xs">Consultoria e Assessoria Jurídica</p>
                 </div>
               </div>
               <p className="text-sm text-primary-foreground/80 mb-2">
                 Sociedade Individual de escritório comprometido com a excelência e dedicada a oferecer as melhores soluções jurídicas.
               </p>
               <p className="text-xs text-accent font-semibold">
-                OAB PJOAB/MG11811
+                OAB/MG 11.811
               </p>
             </div>
             <div>
