@@ -234,7 +234,7 @@ const Index = () => {
             </div>
             <div className="order-1 md:order-2">
               <h2 className="text-3xl font-bold mb-2 text-foreground">Dra. Joelma Alves</h2>
-              <p className="text-sm text-accent font-semibold mb-4">OAB/MG 137.678</p>
+              <p className="text-sm text-accent font-semibold mb-4">OAB/MG 11.811</p>
               <p className="text-base text-muted-foreground mb-6">
                 Advogada com ampla experiência em diversas áreas do direito, oferecendo atendimento humanizado e soluções jurídicas modernas.
               </p>
