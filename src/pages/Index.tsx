@@ -12,7 +12,7 @@ import teamJuliana from "@/assets/teamJuliana.png";
 import teamIngrid from "@/assets/teamIngrid.jpg";
 import officeMeeting from "@/assets/officeMeeting.png";
 import direitoCivil from "@/assets/direitoCivil.png";
-import officeLobby from "@/assets/officeLobby.png";
+import officeLobby from "@/assets/officeLobby.jpg";
 import direitoEmpresarial from "@/assets/direitoEmpresarial.png";
 import direitoConsumerista from "@/assets/direitoConsumerista.png";
 import advocaciaTrabalhista from "@/assets/advocaciaTrabalhista.png";
@@ -86,35 +86,40 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section id="home" className="relative min-h-[90vh] flex items-center justify-center bg-primary text-primary-foreground">
-        <div className="absolute inset-0 bg-cover bg-center opacity-40 pointer-events-none" style={{
-        backgroundImage: `url(${recepcao})`
-      }}></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/70 to-primary pointer-events-none"></div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
-          {/* Logo Central */}
-          <div className="flex flex-col items-center mb-12">
-            <img src={logosemfundo} alt="Logo Joelma Alves" className="w-40 h-40 mb-6" />
-          </div>
+    {/* Hero Section */}
+    <section id="home" className="relative min-h-[90vh] flex items-center justify-center bg-primary text-primary-foreground">
+    <div className="absolute inset-0 bg-cover bg-center opacity-40 pointer-events-none" style={{
+    backgroundImage: `url(${recepcao})`
+    }}></div>
+    <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/70 to-primary pointer-events-none"></div>
+  
+    <div className="container mx-auto px-4 text-center relative z-10">
+    {/* Logo Central */}
+    <div className="flex flex-col items-center mb-12">
+      {/* CLASSE ALTERADA: w-40 h-40 MUDOU PARA w-80 h-80 */}
+      <img 
+        src={logosemfundo} 
+        alt="Logo Joelma Alves" 
+        className="w-80 h-80 mb-6" 
+      />
+    </div>
 
-          {/* Texto Principal */}
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight max-w-5xl mx-auto">
-            Prestamos serviços de Advocacia, Consultoria e Assessoria Jurídica com excelência, dedicação e compromisso com os melhores resultados para nossos clientes.
-          </h2>
+    {/* Texto Principal */}
+    <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight max-w-5xl mx-auto">
+      Prestamos serviços de Advocacia, Consultoria e Assessoria Jurídica com excelência, dedicação e compromisso com os melhores resultados para nossos clientes.
+    </h2>
 
-          {/* Botão */}
-          <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold text-sm px-6 py-3 h-auto mb-12">
-            Fale conosco <ChevronRight className="ml-2 h-4 w-4" />
-          </Button>
+    {/* Botão */}
+    <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold text-sm px-6 py-3 h-auto mb-12">
+      Fale conosco <ChevronRight className="ml-2 h-4 w-4" />
+    </Button>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            
-          </div>
-        </div>
-      </section>
+    {/* Scroll Indicator */}
+    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      
+    </div>
+    </div>
+    </section>
 
       {/* Sobre Section */}
       <section id="sobre" className="py-20 bg-background">
@@ -305,11 +310,11 @@ const Index = () => {
           }, {
             title: "Advocacia Sucessória",
             image: direitoSucessorio,
-            items: ["Inventário e Partilha", "Testamentos", "Planejamento Sucessório", "Partilhas"]
+            items: ["Inventário Judicial e Extrajudicial", "Testamentos", "Planejamento Sucessório", "Partilhas"]
           }, {
             title: "Advocacia Familiarista",
             image: advocaciaFamiliarista,
-            items: ["Divórcio", "Pensão Alimentícia", "Guarda de Filhos", "União Estável"]
+            items: ["Divórcio", "Pensão Alimentícia", "Guarda, Tutela e Curatela", "União Estável"]
           }, {
             title: "Advocacia Previdenciária",
             image: advocaciaPrevidenciaria,
@@ -554,7 +559,7 @@ const Index = () => {
                 </div>
               </div>
               <p className="text-sm text-primary-foreground/80 mb-2">
-                Sociedade Individual de escritório comprometido com a excelência e dedicada a oferecer as melhores soluções jurídicas.
+                Escritório comprometido com a excelência e dedicada a oferecer as melhores soluções jurídicas.
               </p>
               <p className="text-xs text-accent font-semibold">
                 OAB/MG 11.811
@@ -567,6 +572,7 @@ const Index = () => {
                 <li>Advocacia Civil</li>
                 <li>Advocacia Trabalhista</li>
                 <li>Advocacia Familiarista</li>
+                <li>Advocacia Sucessória</li>
               </ul>
             </div>
             <div>
