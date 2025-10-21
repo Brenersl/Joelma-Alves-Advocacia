@@ -31,10 +31,30 @@ const Index = () => {
     telefone: "",
     mensagem: ""
   });
+
+  // FUNÇÃO DE REDIRECIONAMENTO PARA WHATSAPP ADICIONADA AQUI
+  const openWhatsApp = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const numero = "5531991884597"; // Número no formato internacional: 55 + DDD + Número
+    const mensagem = encodeURIComponent("Olá, vim pelo site de vocês e gostaria de falar com um especialista!");
+    const url = `https://wa.me/${numero}?text=${mensagem}`;
+    window.open(url, '_blank');
+  };
+
+  // Funções de rolagem (mantidas apenas para a navegação interna)
+  const scrollToContact = (e: React.MouseEvent) => {
+    e.preventDefault();
+    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+  };
+    
+  // FUNÇÃO DE SUBMISSÃO DO FORMULÁRIO (JÁ EXISTENTE)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    alert("Formulário enviado! Verifique o console."); 
+    // Aqui você deve integrar a lógica de envio real (ex: API, Email Service)
   };
+    
   return <div className="min-h-screen bg-background">
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground py-2.5 text-xs">
@@ -80,7 +100,8 @@ const Index = () => {
             <a href="#areas" onClick={(e) => { e.preventDefault(); document.getElementById('areas')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-primary-foreground hover:text-accent transition-colors text-sm font-medium cursor-pointer">Áreas de atuação</a>
             <a href="#contato" onClick={(e) => { e.preventDefault(); document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-primary-foreground hover:text-accent transition-colors text-sm font-medium cursor-pointer">Contato</a>
           </nav>
-          <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold text-sm px-6 h-10">
+          {/* BOTÃO DO HEADER - AGORA ABRE WHATSAPP */}
+          <Button onClick={openWhatsApp} className="bg-accent hover:bg-accent/90 text-primary font-semibold text-sm px-6 h-10">
             Entrar em contato
           </Button>
         </div>
@@ -96,7 +117,6 @@ const Index = () => {
     <div className="container mx-auto px-4 text-center relative z-10">
     {/* Logo Central */}
     <div className="flex flex-col items-center mb-12">
-      {/* CLASSE ALTERADA: w-40 h-40 MUDOU PARA w-80 h-80 */}
       <img 
         src={logosemfundo} 
         alt="Logo Joelma Alves" 
@@ -109,8 +129,8 @@ const Index = () => {
       Prestamos serviços de Advocacia, Consultoria e Assessoria Jurídica com excelência, dedicação e compromisso com os melhores resultados para nossos clientes.
     </h2>
 
-    {/* Botão */}
-    <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold text-sm px-6 py-3 h-auto mb-12">
+    {/* Botão HERO - AGORA ABRE WHATSAPP */}
+    <Button onClick={openWhatsApp} className="bg-accent hover:bg-accent/90 text-primary font-semibold text-sm px-6 py-3 h-auto mb-12">
       Fale conosco <ChevronRight className="ml-2 h-4 w-4" />
     </Button>
 
@@ -135,7 +155,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold mb-3 text-accent">Nossa Missão</h3>
               <p className="text-muted-foreground">
-                Prover serviços jurídicos de qualidade, a fim de auxiliar os clientes a alcançar seus objetivos de forma eficaz,  inovadora e humana, através de advogados e colaboradores qualificados, valorizados e dedicados a preservar a credibilidade construída ao longo dos anos.
+                Prover serviços jurídicos de qualidade, a fim de auxiliar os clientes a alcançar seus objetivos de forma eficaz, 	inovadora e humana, através de advogados e colaboradores qualificados, valorizados e dedicados a preservar a credibilidade construída ao longo dos anos.
               </p>
             </Card>
             <Card className="p-6 text-center">
@@ -153,7 +173,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-bold mb-3 text-accent">Valores</h3>
               <p className="text-muted-foreground">
-                Ética, lealdade, boa-fé, transparência, honestidade, responsabilidade social e empatia,  primando pela verdade para poder servir à justiça como um de seus elementosessenciais.
+                Ética, lealdade, boa-fé, transparência, honestidade, responsabilidade social e empatia, 	primando pela verdade para poder servir à justiça como um de seus elementosessenciais.
               </p>
             </Card>
           </div>
@@ -291,39 +311,39 @@ const Index = () => {
             title: "Direito Civil",
             image: direitoCivil,
             items: ["Contratos Civis", "Responsabilidade Civil", "Direitos Reais", "Indenizações"]
-          }, {
+            }, {
             title: "Advocacia Empresarial",
             image: direitoEmpresarial,
             items: ["Contratos Empresariais", "Consultoria Corporativa", "Compliance", "Recuperação Judicial"]
-          }, {
+            }, {
             title: "Advocacia Consumerista",
             image: direitoConsumerista,
             items: ["Defesa do Consumidor", "Vícios de Produtos", "Publicidade Enganosa", "Danos morais"]
-          }, {
+            }, {
             title: "Advocacia Trabalhista",
             image: advocaciaTrabalhista,
             items: ["Ações Trabalhistas", "Negociações Sindicais", "FGTS", "Ações Coletivas"]
-          }, {
+            }, {
             title: "Advocacia Imobiliária",
             image: direitoImobiliario,
             items: ["Compra e Venda", "Locação", "Usucapião", "Regularização Fundiária"]
-          }, {
+            }, {
             title: "Advocacia Sucessória",
             image: direitoSucessorio,
             items: ["Inventário Judicial e Extrajudicial", "Testamentos", "Planejamento Sucessório", "Partilhas"]
-          }, {
+            }, {
             title: "Advocacia Familiarista",
             image: advocaciaFamiliarista,
             items: ["Divórcio", "Pensão Alimentícia", "Guarda, Tutela e Curatela", "União Estável"]
-          }, {
+            }, {
             title: "Advocacia Previdenciária",
             image: advocaciaPrevidenciaria,
             items: ["Aposentadorias", "Benefícios", "Revisões", "Auxílios"]
-          }, {
+            }, {
             title: "Consultoria Jurídica",
             image: consultoriaJuridica,
             items: ["Análise de Contratos", "Pareceres Jurídicos", "Due Diligence", "Assessoria Preventiva"]
-          }].map((area, index) => <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer">
+            }].map((area, index) => <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
                   <img src={area.image} alt={area.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent"></div>
@@ -346,7 +366,7 @@ const Index = () => {
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{
         backgroundImage: `url(${ctaBackground})`
-      }}></div>
+        }}></div>
         <div className="absolute inset-0 bg-black/70"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-accent">
@@ -355,7 +375,8 @@ const Index = () => {
           <p className="text-lg md:text-xl mb-8 text-white max-w-3xl mx-auto">
             Entre em contato conosco para uma consulta personalizada. Estamos prontos para atender suas necessidades jurídicas com excelência e dedicação.
           </p>
-          <Button className="bg-accent hover:bg-accent/90 text-primary font-semibold text-lg px-10 py-6 h-auto rounded-md">
+          {/* BOTÃO CTA - AGORA ABRE WHATSAPP */}
+          <Button onClick={openWhatsApp} className="bg-accent hover:bg-accent/90 text-primary font-semibold text-lg px-10 py-6 h-auto rounded-md">
             Fale Conosco
           </Button>
         </div>
@@ -373,7 +394,7 @@ const Index = () => {
               <CarouselContent>
                 {[{
                   name: "Maikon Silva",
-                  text: "Tive uma excelente experiência com a Dra Joelma, é uma profissional dedicada e exemplar. Ela me ajudou a pegar a guarda da minha filha, é nítido o amor que ela tem pelo que faz. Recomendo muito como advogada, além de prestativa, sempre está consultando os processos de seus clientes, nunca perdendo prazos durante os trâmites. Hoje, mais que uma advogada, é uma grande AMIGA"
+                  text: "Tive uma excelente experiência com a Dra Joelma, é uma profissional dedicada e exemplar. Ela me ajudou a pegar a guarda da minha filha, é nítito o amor que ela tem pelo que faz. Recomendo muito como advogada, além de prestativa, sempre está consultando os processos de seus clientes, nunca perdendo prazos durante os trâmites. Hoje, mais que uma advogada, é uma grande AMIGA"
                 }, {
                   name: "Cláudio Henrique",
                   text: "Gostaria de expressar meu sincero elogio à Joelma Alves Advocacia. A competência e dedicação demonstradas pela equipe refletem-se em serviços jurídicos de alta qualidade. Estou impressionado com o profissionalismo e a atenção aos detalhes que caracterizam o trabalho desta advocacia. Recomendo Joelma Alves Advocacia a todos que buscam excelência jurídica."
@@ -505,30 +526,30 @@ const Index = () => {
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">Nome Completo</label>
                   <Input value={formData.nome} onChange={e => setFormData({
-                  ...formData,
-                  nome: e.target.value
-                })} required className="w-full" />
+                    ...formData,
+                    nome: e.target.value
+                  })} required className="w-full" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">E-mail</label>
                   <Input type="email" value={formData.email} onChange={e => setFormData({
-                  ...formData,
-                  email: e.target.value
-                })} required className="w-full" />
+                    ...formData,
+                    email: e.target.value
+                  })} required className="w-full" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">Telefone</label>
                   <Input value={formData.telefone} onChange={e => setFormData({
-                  ...formData,
-                  telefone: e.target.value
-                })} required className="w-full" />
+                    ...formData,
+                    telefone: e.target.value
+                  })} required className="w-full" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-foreground">Mensagem</label>
                   <Textarea value={formData.mensagem} onChange={e => setFormData({
-                  ...formData,
-                  mensagem: e.target.value
-                })} required rows={4} className="w-full" />
+                    ...formData,
+                    mensagem: e.target.value
+                  })} required rows={4} className="w-full" />
                 </div>
                 <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
                   Enviar Mensagem
@@ -543,7 +564,7 @@ const Index = () => {
       <section className="h-96 bg-muted">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.8516936859244!2d-44.184687!3d-19.967344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69a3e72f7b665%3A0x8e63c72bc77b0ba3!2sAv.%20Nova%20York%2C%20587%20-%20Capelinha%2C%20Betim%20-%20MG!5e0!3m2!1spt-BR!2sbr!4v1234567890" width="100%" height="100%" style={{
         border: 0
-      }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Localização do Escritório"></iframe>
+        }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Localização do Escritório"></iframe>
       </section>
 
       {/* Footer */}
@@ -578,7 +599,13 @@ const Index = () => {
             <div>
               <h4 className="font-bold mb-4">Contato</h4>
               <ul className="space-y-2 text-sm text-primary-foreground/80">
-                <li>(31) 99188-4597 (WhatsApp)</li>
+                {/* Ícones de WhatsApp e Telefone com link do WhatsApp */}
+                <li className="flex items-center gap-2">
+                    <MessageCircle className="h-4 w-4" />
+                    <a href="https://wa.me/5531991884597?text=Gostaria%20de%20entrar%20em%20contato%20ap%C3%B3s%20ver%20a%20Landing%20Page" target="_blank" rel="noopener noreferrer">
+                        (31) 99188-4597 (WhatsApp)
+                    </a>
+                </li>
                 <li>(31) 3583-1872</li>
                 <li>contato@joelmaalvesadv.com.br</li>
                 <li>Avenida Nova York, 587 - Segundo andar, interfone 02 - Capelinha, Betim - MG</li>
@@ -593,7 +620,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/80">
-            <p>&copy; 2025 Joelma Alves Advocacia. Todos os direitos reservados.</p>
+            <p>© 2025 Joelma Alves Advocacia. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
