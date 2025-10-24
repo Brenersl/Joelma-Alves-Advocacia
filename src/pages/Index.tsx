@@ -473,7 +473,7 @@ const Index = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-foreground mb-1">E-mail</p>
-                      <p className="text-muted-foreground">contato@joelmaalvesadv.com.br</p>
+                      <p className="text-muted-foreground">contato@joelmaalvesadvocacia.com.br</p>
                     </div>
                   </div>
                 </Card>
@@ -607,7 +607,7 @@ const Index = () => {
                     </a>
                 </li>
                 <li>(31) 3583-1872</li>
-                <li>contato@joelmaalvesadv.com.br</li>
+                <li>contato@joelmaalvesadvocacia.com.br</li>
                 <li>Avenida Nova York, 587 - Segundo andar, interfone 02 - Capelinha, Betim - MG</li>
               </ul>
             </div>
